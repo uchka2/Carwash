@@ -1,0 +1,58 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Холбоо Барих</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="form.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Холбоо Барих</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Нүүр</a></li>
+        <li><a href="services.html">Үйлчилгээ</a></li>
+        <li><a href="pricing.html">Үнийн Жагсаалт</a></li>
+        <li><a href="gallery.html">Галерей</a></li>
+        <li><a href="contact.html">Холбоо Барих</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="contact-form">
+      <h2>Бидэнтэй холбогдох</h2>
+      <form id="contactForm">
+        <label for="name">Нэр:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Имэйл:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Зурвас:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Илгээх</button>
+        <p id="formMessage"></p>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Машин Угаалга. Бүх эрх хуулиар хамгаалагдсан.</p>
+  </footer>
+</body>
+</html>
+
+/* form.js */
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    formMessage.textContent = 'Таны хүсэлт амжилттай илгээгдлээ. Бид удахгүй холбогдох болно.';
+    form.reset();
+  });
+});

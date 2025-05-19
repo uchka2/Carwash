@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Машин Угаалга - Үйлчилгээ</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .tab {
+      display: flex;
+      margin: 20px;
+      border-bottom: 2px solid #3498db;
+    }
+    .tab button {
+      flex: 1;
+      background: #eee;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .tab button.active {
+      background: #3498db;
+      color: white;
+    }
+    .tabcontent {
+      display: none;
+      padding: 20px;
+      background: white;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    .tabcontent.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Машин Угаалга</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Нүүр</a></li>
+        <li><a href="services.html" class="active">Үйлчилгээ</a></li>
+        <li><a href="pricing.html">Үнийн Жагсаалт</a></li>
+        <li><a href="gallery.html">Галерей</a></li>
+        <li><a href="contact.html">Холбоо Барих</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Үйлчилгээ</h2>
+    <div class="tab" role="tablist">
+      <button class="tablinks active" onclick="openTab(event, 'wash')" role="tab" aria-selected="true">Машин Угаах</button>
+      <button class="tablinks" onclick="openTab(event, 'wax')" role="tab" aria-selected="false">Вакс</button>
+      <button class="tablinks" onclick="openTab(event, 'interior')" role="tab" aria-selected="false">Дотоод Цэвэрлэгээ</button>
+    </div>
+
+    <div id="wash" class="tabcontent active" role="tabpanel">
+      <h3>Машин Угаах</h3>
+      <p>Манай мэргэжлийн баг таны машины гадна талын бохирдлыг хурдан бөгөөд чанартай арилгана.</p>
+    </div>
+    <div id="wax" class="tabcontent" role="tabpanel">
+      <h3>Вакс</h3>
+      <p>Вакс хийх үйлчилгээ нь таны машины өнгө болон гадаргууг хамгаалах болно.</p>
+    </div>
+    <div id="interior" class="tabcontent" role="tabpanel">
+      <h3>Дотоод Цэвэрлэгээ</h3>
+      <p>Машины дотор талын бүрэн цэвэрлэгээ, үнэр дарах үйлчилгээ үзүүлнэ.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Машин Угаалга. Бүх эрх хуулиар хамгаалагдсан.</p>
+  </footer>
+
+  <script>
+    function openTab(evt, tabName) {
+      const tabcontents = document.querySelectorAll(".tabcontent");
+      const tablinks = document.querySelectorAll(".tablinks");
+      tabcontents.forEach(tc => tc.classList.remove("active"));
+      tablinks.forEach(tl => {
+        tl.classList.remove("active");
+        tl.setAttribute("aria-selected", "false");
+      });
+
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+      evt.currentTarget.setAttribute("aria-selected", "true");
+    }
+  </script>
+</body>
+</html>
